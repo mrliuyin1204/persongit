@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>放价好物</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.out {
+			width: 590px;
+			height: 470px;
+			border: 1px solid green;
+			position: relative;
+		}
+		img {
+			position: absolute;
+		}
+		p {
+			width: 590px;
+			height: 30px;
+			position: absolute;
+			bottom: 0;
+			margin: 0;
+			text-align: center;
+		}
+		span {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background-color: green;
+			margin: 10px;
+		}
+		.ty {
+			background-color: red;
+		}
+
+		.rightBtn {
+			width: 50px;
+			height: 50px;
+			font-size: 40px;
+			position: absolute;
+			color: white;
+			right: 0;
+			top: 210px;
+			background-color: rgba(255,255,255,0);
+
+
+		}
+	</style>
+</head>
+<body>
+	<div class="out">
+		<img src="https://m.360buyimg.com/babel/jfs/t1/5527/39/9035/88857/5bab4dcbE3eb087b0/e46a11ddd934ca86.jpg">
+		<img src="https://m.360buyimg.com/babel/jfs/t1/3061/36/8846/94356/5bab4ca1Ebc2aef25/187822196655833c.jpg">
+		<img src="https://m.360buyimg.com/babel/jfs/t1/3843/17/8611/81004/5ba9d326E9a4e59f2/5152f92554d77357.jpg">
+		<img src="https://m.360buyimg.com/babel/jfs/t1/5003/27/8653/92335/5ba9f86cE65b86a69/049a5a26f2561ba4.jpg">
+
+		<p>
+			<span class="ty" onmouseover="changeShownImg (0)"></span>
+			<span onmouseover="changeShownImg (1)"></span>
+			<span onmouseover="changeShownImg (2)"></span>
+			<span onmouseover="changeShownImg (3)"></span>
+		</p>
+
+		<button class="rightBtn" onclick="rightBtnClick ()"> > </button>
+	</div>
+
+
+<script type="text/javascript">
+		
+		var imgs = document.querySelectorAll("img");
+		var spans = document.querySelectorAll("span");
+
+		function changeShownImg (index) {
+			for (var i = 0; i < imgs.length; i++) {
+			
+				imgs[i].style.opacity = "0";
+				imgs[index].style.opacity = "1";
+			}
+
+			for (var i = 0; i < spans.length; i++) {
+				spans[i].className = "";
+				spans[index].className = "ty";
+				currentIndex = index;
+			}
+		}	
+
+		var currentIndex = 0;
+
+		function rightBtnClick () {
+			currentIndex++;
+			if (currentIndex > spans.length - 1) {
+				currentIndex = 0;
+			}
+			changeShownImg(currentIndex);
+		}
+
+
+
+</script>
+
+	
+</body>
+</html>
